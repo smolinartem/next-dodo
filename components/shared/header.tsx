@@ -1,8 +1,10 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Container } from './container'
 import { Button } from '../ui'
 import { ArrowRight, ShoppingCart, User } from 'lucide-react'
+import { SearchInput } from './search-input'
 
 interface HeaderProps {
   className?: string
@@ -12,13 +14,17 @@ export function Header({ className }: HeaderProps) {
   return (
     <header className={cn('border-b', className)}>
       <Container className='flex items-center justify-between py-8'>
-        <a href='/' className='flex items-center gap-4'>
+        <Link href='/' className='flex items-center gap-4'>
           <Image src='/logo.png' alt='Logo.' width={35} height={35} />
           <div>
             <h1 className='text-2xl uppercase font-black'>Next Pizza</h1>
             <span className='block text-sm text-gray-400 leading-3'>вкуснее уже не куда</span>
           </div>
-        </a>
+        </Link>
+
+        <div className='mx-10 flex-1'>
+          <SearchInput />
+        </div>
 
         <div className='flex items-center gap-3'>
           <Button className='flex items-center gap-1' variant='outline'>

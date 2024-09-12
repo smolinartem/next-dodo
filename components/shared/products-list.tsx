@@ -36,7 +36,8 @@ export function ProductsList({
   }, [intersection?.isIntersecting, setActiveCategoryId, categorieId])
 
   return (
-    <section ref={intersectionRef} id={title} className={cn(className)}>
+    <section ref={intersectionRef} className={cn(className)}>
+      <a className='block relative top-[-110px] invisible' id={title}></a>
       <h2 className='text-3xl font-extrabold mb-5'>{title}</h2>
       <div className={cn('grid grid-cols-3 gap-[50px]', listClassName)}>
         {products.map((product, index) => (
